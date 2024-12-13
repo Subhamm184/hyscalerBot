@@ -1,20 +1,20 @@
 <odoo>
-    <record id="chatbot_user_form_view" model="ir.ui.view">
-        <field name="name">chatbot.user.form</field>
-        <field name="model">chatbot.user</field>
+    <record id="recruitment_user_form" model="ir.ui.view">
+        <field name="name">recruitment.bot.user.form</field>
+        <field name="model">recruitment.bot.user</field>
         <field name="arch" type="xml">
-            <form string="Chatbot User Information">
+            <form string="User Details for Recruitment Chatbot">
                 <sheet>
                     <group>
-                        <field name="company"/>
-                        <field name="profession"/>
-                        <field name="skills"/>
+                        <field name="selected_company"/>
+                        <field name="role"/>
+                        <field name="expertise"/>
                     </group>
-                    <button name="start_quiz" string="Start Quiz" type="object" class="btn-primary"/>
-                    <t t-if="record.quiz_score &gt; 70">
+                    <button name="start_assessment" string="Begin Assessment" type="object" class="btn-primary"/>
+                    <t t-if="record.assessment_score &gt; 70">
                         <div class="alert alert-success">
-                            You are eligible to apply!
-                            <button name="apply_now" string="Apply Now" type="object" class="btn btn-success"/>
+                            Congratulations! You meet the criteria for application.
+                            <button name="apply_now" string="Apply" type="object" class="btn-success"/>
                         </div>
                     </t>
                 </sheet>
