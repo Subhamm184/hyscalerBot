@@ -1,0 +1,24 @@
+<odoo>
+    <record id="chatbot_user_form_view" model="ir.ui.view">
+        <field name="name">chatbot.user.form</field>
+        <field name="model">chatbot.user</field>
+        <field name="arch" type="xml">
+            <form string="Chatbot User Information">
+                <sheet>
+                    <group>
+                        <field name="company"/>
+                        <field name="profession"/>
+                        <field name="skills"/>
+                    </group>
+                    <button name="start_quiz" string="Start Quiz" type="object" class="btn-primary"/>
+                    <t t-if="record.quiz_score &gt; 70">
+                        <div class="alert alert-success">
+                            You are eligible to apply!
+                            <button name="apply_now" string="Apply Now" type="object" class="btn btn-success"/>
+                        </div>
+                    </t>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
