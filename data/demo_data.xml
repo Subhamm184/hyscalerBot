@@ -1,0 +1,8 @@
+<odoo>
+    <record id="company_1" model="res.company">
+        <field name="name">Hyscaler</field>
+    </record>
+    <record id="company_2" model="res.company">
+        <field name="name">Google</field>
+    </record>
+</odoo>
