@@ -2,16 +2,23 @@ from odoo import http
 from odoo.http import request
 import openai
 
-openai.api_key = 'your_api_key'
+openai.api_key = 'I share my api key in the mail'
 
-class ChatbotController(http.Controller):
+class RecruitmentChatbot(http.Controller):
 
-    @http.route('/chatbot/ask_questions', auth='public', methods=['POST'], type='json')
-    def ask_questions(self, company, profession, skills):
-        prompt = f"User selected {company}, profession is {profession}, and their skills are {skills}. Please ask 10 relevant questions."
-        response = openai.Completion.create(
-            engine="text-davinci-003", 
-            prompt=prompt,
-            max_tokens=150
+    @http.route('/recruitment/chatbot', auth='public', methods=['POST'], type='json')
+    def chatbot_interaction(self, company, role, skills):
+      
+        chatbot_prompt = (
+            f"Given the company '{company}', role '{role}', and skills '{skills}', "
+            "generate 10 relevant questions for a recruitment process."
         )
-        return {'questions': response.choices[0].text.strip().split('\n')}
+
+        chat_response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=chatbot_prompt,
+            max_tokens=200
+        )
+
+        questions = chat_response.choices[0].text.strip().split('\n')
+        return {'questions': questions}
