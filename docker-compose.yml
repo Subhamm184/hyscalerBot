@@ -1,0 +1,12 @@
+version: '3'
+services:
+  odoo:
+    image: odoo:17.0
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./addons:/mnt/extra-addons
+    environment:
+      - HOST=localhost
+      - USER=admin
+      - PASSWORD=admin
