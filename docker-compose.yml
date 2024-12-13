@@ -3,10 +3,9 @@ services:
   odoo:
     image: odoo:17.0
     ports:
-      - "8069:8069"
+      - "8070:8069"
     volumes:
-      - ./addons:/mnt/extra-addons
+      - ./chatbot_modules:/mnt/extra-addons
     environment:
       - HOST=localhost
-      - USER=admin
-      - PASSWORD=admin
+      - ADMIN_PASSWORD=admin
