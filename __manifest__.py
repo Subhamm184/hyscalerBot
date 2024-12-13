@@ -1,12 +1,12 @@
 {
-    'name': 'Chatbot Recruitment',
-    'version': '1.0',
-    'category': 'Tools',
-    'summary': 'Chatbot for company recruitment and application',
+    'name': 'Recruitment Chatbot',
+    'version': '1.1',
+    'category': 'Utility',
+    'summary': 'Interactive Chatbot for Recruitment Processes',
     'depends': ['base', 'web', 'hr'],
     'data': [
-        'views/chatbot_user_views.xml',
-        'data/demo_data.xml',
+        'views/chatbot_user_interface.xml',
+        'data/sample_data.xml', 
     ],
     'installable': True,
     'auto_install': False,
